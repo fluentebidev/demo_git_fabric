@@ -1,0 +1,658 @@
+{
+  "compatibilityLevel": 1604,
+  "model": {
+    "annotations": [
+      {
+        "name": "__PBI_TimeIntelligenceEnabled",
+        "value": "0"
+      },
+      {
+        "name": "PBIDesktopVersion",
+        "value": "2.139.7481.1 (Main)"
+      },
+      {
+        "name": "PBI_QueryOrder",
+        "value": "[\"DatabaseQuery\"]"
+      },
+      {
+        "name": "PBI_ProTooling",
+        "value": "[\"WebModelingEdit\"]"
+      }
+    ],
+    "collation": "Latin1_General_100_BIN2_UTF8",
+    "culture": "en-US",
+    "cultures": [
+      {
+        "name": "en-US",
+        "linguisticMetadata": {
+          "content": {
+            "Language": "en-US",
+            "Version": "1.0.0"
+          },
+          "contentType": "json"
+        }
+      }
+    ],
+    "dataAccessOptions": {
+      "legacyRedirects": true,
+      "returnErrorValuesAsNull": true
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "expressions": [
+      {
+        "name": "DatabaseQuery",
+        "annotations": [
+          {
+            "name": "PBI_IncludeFutureArtifacts",
+            "value": "False"
+          }
+        ],
+        "expression": [
+          "let",
+          "    database = Sql.Database(\"GVKMT76PZ4CUHM2FS63QGXL5CY-N2CLJ3BMWFUUHDPUYUUJJEVCRU.datawarehouse.fabric.microsoft.com\", \"0cf5b740-8988-4bac-94c5-06bd701d4420\")",
+          "in",
+          "    database"
+        ],
+        "kind": "m",
+        "lineageTag": "809f25d9-5609-4ff7-b2d0-f48a8054c530"
+      }
+    ],
+    "relationships": [
+      {
+        "name": "15ada7a1-30b1-0a72-db19-89884eb1b7ad",
+        "fromColumn": "Moeda",
+        "fromTable": "transacoes",
+        "toColumn": "Moeda",
+        "toTable": "moedas"
+      },
+      {
+        "name": "edc243c8-f1a5-b545-d95e-880d8047151d",
+        "fromColumn": "Moeda",
+        "fromTable": "cotacoes",
+        "toColumn": "Moeda",
+        "toTable": "moedas"
+      },
+      {
+        "name": "7c9837c1-df78-9045-2a45-dee394f6f10b",
+        "fromColumn": "Data",
+        "fromTable": "transacoes",
+        "toColumn": "Data",
+        "toTable": "calendario"
+      },
+      {
+        "name": "f106f0ec-dc16-3b65-6177-9e60148ca17e",
+        "fromColumn": "DataCotacao",
+        "fromTable": "cotacoes",
+        "toColumn": "Data",
+        "toTable": "calendario"
+      }
+    ],
+    "sourceQueryCulture": "en-US",
+    "tables": [
+      {
+        "name": "moedas",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Moeda",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "29f17330-644b-4645-b19d-1e3c97346607",
+            "sourceColumn": "Moeda",
+            "sourceLineageTag": "Moeda",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nome",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "7cf6509f-3843-4289-b6b4-53ba410f2107",
+            "sourceColumn": "Nome",
+            "sourceLineageTag": "Nome",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Formato",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "5020e7c1-fff3-48b1-bebd-c0204791b44e",
+            "sourceColumn": "Formato",
+            "sourceLineageTag": "Formato",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "f2048ff1-4f95-43bc-81d9-8a5ad3e0c8cb",
+        "partitions": [
+          {
+            "name": "moedas",
+            "mode": "directLake",
+            "source": {
+              "entityName": "moedas",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[moedas]"
+      },
+      {
+        "name": "cotacoes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Moeda",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "string",
+            "displayFolder": "Colunas",
+            "lineageTag": "e67985bb-3f1f-48d9-aa36-e7d6d0a92047",
+            "sourceColumn": "Moeda",
+            "sourceLineageTag": "Moeda",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DataHoraCotacao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "dateTime",
+            "displayFolder": "Colunas",
+            "formatString": "General Date",
+            "lineageTag": "3b0363e3-4a24-41a9-86e8-d46f542fcef7",
+            "sourceColumn": "DataHoraCotacao",
+            "sourceLineageTag": "DataHoraCotacao",
+            "sourceProviderType": "datetime2",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DataCotacao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "dateTime",
+            "displayFolder": "Colunas",
+            "formatString": "Short Date",
+            "lineageTag": "a9ee92a9-60c0-40c3-9f3f-b48ed7c4caa4",
+            "sourceColumn": "DataCotacao",
+            "sourceLineageTag": "DataCotacao",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Cotacao",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "double",
+            "displayFolder": "Colunas",
+            "lineageTag": "c7a10303-4864-4c09-b674-5ca0abf675e2",
+            "sourceColumn": "Cotacao",
+            "sourceLineageTag": "Cotacao",
+            "sourceProviderType": "real",
+            "summarizeBy": "average"
+          },
+          {
+            "name": "TipoBoletim",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "string",
+            "displayFolder": "Colunas",
+            "lineageTag": "f1ca17c6-473a-4832-865d-0840cb50a501",
+            "sourceColumn": "TipoBoletim",
+            "sourceLineageTag": "TipoBoletim",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "6a7a6d8b-5ee8-46c8-a465-06cbb810fa4a",
+        "measures": [
+          {
+            "name": "Cotação do dia",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "displayFolder": "Medidas",
+            "expression": "AVERAGE(cotacoes[Cotacao]) ",
+            "formatString": "\"R$\"\\ #,0.00;-\"R$\"\\ #,0.00;\"R$\"\\ #,0.00",
+            "lineageTag": "2a9f689f-4c17-4d02-bcda-98eadeb0c243"
+          },
+          {
+            "name": "Cotação corrigida",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "displayFolder": "Medidas",
+            "expression": [
+              "",
+              "",
+              "VAR __DataCtx = MAX(calendario[Data]) ",
+              "",
+              "VAR __UltimaDataComCotacao = ",
+              "    CALCULATE(",
+              "        LASTNONBLANK(calendario[Data], [Cotação do dia]),",
+              "        calendario[Data] <= __DataCtx",
+              "    )",
+              "",
+              "RETURN",
+              "    CALCULATE(",
+              "        [Cotação do dia],",
+              "        calendario[Data] = __UltimaDataComCotacao",
+              "    )"
+            ],
+            "formatString": "\"R$\"\\ #,0.00;-\"R$\"\\ #,0.00;\"R$\"\\ #,0.00",
+            "lineageTag": "c5cc9265-800f-4081-ab6b-a742db0bcffc"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "cotacoes",
+            "mode": "directLake",
+            "source": {
+              "entityName": "cotacoes",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[cotacoes]"
+      },
+      {
+        "name": "calendario",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Data",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "isKey": true,
+            "lineageTag": "031cefa7-ea43-4af5-8b06-e92695a04e00",
+            "sourceColumn": "Data",
+            "sourceLineageTag": "Data",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ano",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SummarizeBy"
+              }
+            ],
+            "dataType": "int64",
+            "formatString": "0",
+            "lineageTag": "c6a92dcf-c0e4-4b58-b6e3-553a2d0e3bef",
+            "sourceColumn": "Ano",
+            "sourceLineageTag": "Ano",
+            "sourceProviderType": "bigint",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MesAno",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "SortByColumn"
+              }
+            ],
+            "dataType": "string",
+            "lineageTag": "de77393d-31bd-4f68-8aa5-ec3064a0f60d",
+            "sortByColumn": "MesInicio",
+            "sourceColumn": "MesAno",
+            "sourceLineageTag": "MesAno",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "MesInicio",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              }
+            ],
+            "dataType": "dateTime",
+            "formatString": "Short Date",
+            "lineageTag": "8d1f19d5-bfb0-4cfa-95a5-04338f70a6d4",
+            "sourceColumn": "MesInicio",
+            "sourceLineageTag": "MesInicio",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          }
+        ],
+        "dataCategory": "Time",
+        "lineageTag": "2a538c9c-796e-4e2d-b83e-d7eaf452ec4c",
+        "partitions": [
+          {
+            "name": "calendario",
+            "mode": "directLake",
+            "source": {
+              "entityName": "calendario",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[calendario]"
+      },
+      {
+        "name": "transacoes",
+        "annotations": [
+          {
+            "name": "PBI_ResultType",
+            "value": "Table"
+          }
+        ],
+        "columns": [
+          {
+            "name": "ID",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "double",
+            "displayFolder": "Colunas",
+            "lineageTag": "ba81ebc2-0fd9-45ba-b065-f62a66081793",
+            "sourceColumn": "ID",
+            "sourceLineageTag": "ID",
+            "sourceProviderType": "float",
+            "summarizeBy": "count"
+          },
+          {
+            "name": "Data",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "dateTime",
+            "displayFolder": "Colunas",
+            "formatString": "Short Date",
+            "lineageTag": "28abe86c-2755-48e6-a0c7-d71797d16f9e",
+            "sourceColumn": "Data",
+            "sourceLineageTag": "Data",
+            "sourceProviderType": "date",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Total",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"isGeneralNumber\":true}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "double",
+            "displayFolder": "Colunas",
+            "lineageTag": "e9e4f6ff-338a-40e7-bb98-887bdae51cf8",
+            "sourceColumn": "Total",
+            "sourceLineageTag": "Total",
+            "sourceProviderType": "float",
+            "summarizeBy": "sum"
+          },
+          {
+            "name": "Moeda",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "dataType": "string",
+            "displayFolder": "Colunas",
+            "lineageTag": "f6fa78c5-86b2-40a3-b4d4-f6ad2b81fd8a",
+            "sourceColumn": "Moeda",
+            "sourceLineageTag": "Moeda",
+            "sourceProviderType": "varchar(8000)",
+            "summarizeBy": "none"
+          }
+        ],
+        "lineageTag": "1ab51b88-9540-4c91-868b-512890d9dd0f",
+        "measures": [
+          {
+            "name": "Valor Total",
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "displayFolder": "Medidas",
+            "expression": "SUM(transacoes[Total])",
+            "formatString": "#,0.00",
+            "lineageTag": "d109fa43-96e5-4e42-8be1-67f789f282e0"
+          },
+          {
+            "name": "Total R$",
+            "annotations": [
+              {
+                "name": "PBI_FormatHint",
+                "value": "{\"currencyCulture\":\"pt-BR\"}"
+              }
+            ],
+            "changedProperties": [
+              {
+                "property": "Name"
+              },
+              {
+                "property": "FormatString"
+              },
+              {
+                "property": "DisplayFolder"
+              }
+            ],
+            "displayFolder": "Medidas",
+            "expression": [
+              "",
+              "SUMX(",
+              "    moedas,",
+              "    SUMX(",
+              "        calendario,",
+              "        COALESCE([Cotação corrigida], 1) * [Valor Total] ",
+              "    )",
+              ") ",
+              ""
+            ],
+            "formatString": "\"R$\"\\ #,0.00;-\"R$\"\\ #,0.00;\"R$\"\\ #,0.00",
+            "lineageTag": "3b7cdf6c-82a1-4684-8b85-9485c24fb35d"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "transacoes",
+            "mode": "directLake",
+            "source": {
+              "entityName": "transacoes",
+              "expressionSource": "DatabaseQuery",
+              "schemaName": "dbo",
+              "type": "entity"
+            }
+          }
+        ],
+        "sourceLineageTag": "[dbo].[transacoes]"
+      }
+    ]
+  }
+}
